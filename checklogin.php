@@ -12,7 +12,7 @@ if (!isset($_POST['pass'])) {
 // if login succeeds (user,pass)
 if (login($_POST['username'],$_POST['pass'])) {
 	// accesses the content
-	header('location: index.php');
+	header('location: '.get_referer());
 } else {
 	// redirects to login
 	header('location: login.php');

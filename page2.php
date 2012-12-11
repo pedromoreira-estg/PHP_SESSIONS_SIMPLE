@@ -3,6 +3,7 @@
     include_once 'sessionAPI.php';
 	// starts the Session - based Login System
 	startLoginSystem();
+	set_referer();
 	// is not logged
 	if (!($user = is_logged())) {
 		// redirects to  index

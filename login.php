@@ -6,7 +6,7 @@
 	// is logged session
 	if ($user = is_logged()) {
 		// redirects to  index
-		header('location: index.php');
+		header("location: ".get_referer());
 	}
 	// closes the Login System (this is not a logout)
 	closeLoginSystem();

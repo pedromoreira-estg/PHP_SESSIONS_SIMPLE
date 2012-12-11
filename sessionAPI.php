@@ -3,6 +3,19 @@ function startLoginSystem() {
 	session_start();
 }
 
+function set_referer() {
+	$_SESSION['from'] = $_SERVER['PHP_SELF'];
+}
+
+function get_referer() {
+	if (!empty($_SESSION['from'])) 
+		$GoTo =$_SESSION['from'];
+	else {
+		$GoTo = 'index.php';
+	}
+	return $GoTo;
+}
+
 function is_logged() {
 	if (!isset($_SESSION['user'])) {
 		$logged = false;
@@ -16,7 +29,6 @@ function is_logged() {
 }
 
 function closeLoginSystem() {
-	// 
 	session_write_close();
 }
 
@@ -35,6 +47,7 @@ function logout() {
 	// clear the $_SESSION Array
 	$_SESSION = array();
 	// destroys session data
+	session_unset();
 	session_destroy();	
 }
 
